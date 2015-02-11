@@ -12,7 +12,7 @@ class Likes(models.Model):
     content_object = generic.GenericForeignKey("content_type", "object_id")
     count = models.PositiveIntegerField(default=0)
 
-    class Meta:
+    class Meta():
         verbose_name = _("Likes")
         verbose_name_plural = _("Likes")
         unique_together = ("content_type", "object_id")
@@ -34,7 +34,7 @@ class Like(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, null=False, blank=False,
                              related_name="likes", verbose_name=_("likes"))
 
-    class Meta:
+    class Meta():
         verbose_name = _("Like")
         verbose_name_plural = _("Likes")
         unique_together = ("content_type", "object_id", "user")

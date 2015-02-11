@@ -16,8 +16,8 @@ cache_type = {
 }
 
 
-def cache_key(type, params):
-    return cache_type[type] % params
+def cache_key(for_type, params):
+    return cache_type[for_type] % params
 
 
 def get_obj_type_for_model(model):

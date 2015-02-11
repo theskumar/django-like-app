@@ -18,10 +18,9 @@ def attach_likescount_to_queryset(queryset, as_field="likes_count"):
     :return: Queryset object with the additional `as_field` field.
     """
     model = queryset.model
-    type = apps.get_model(
-        "contenttypes", "ContentType").objects.get_for_model(model)
+    content_type = apps.get_model("contenttypes", "ContentType").objects.get_for_model(model)
     sql = ("SELECT coalesce(likes_likes.count, 0) FROM likes_likes "
            "WHERE likes_likes.content_type_id = {type_id} AND likes_likes.object_id = {tbl}.id")
-    sql = sql.format(type_id=type.id, tbl=model._meta.db_table)
+    sql = sql.format(type_id=content_type.id, tbl=model._meta.db_table)
     qs = queryset.extra(select={as_field: sql})
     return qs
