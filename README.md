@@ -30,7 +30,7 @@ Get the likers of an object.
 
 It makes use of caching to avoid database queries, so you don't have to.
 
-__Disclaimer:__ This is work in progress.
+__Disclaimer:__ This is work in progress, but it's stable enough to be used in any project and is being used in live projects. Do read the soucrce code to understand the working. 
 
 ## LICENSE
 
